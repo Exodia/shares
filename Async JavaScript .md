@@ -7,9 +7,7 @@ asyncFunction(cb);
 ###缺点
 模块依赖严重
 
-
-<pre><code>
-asyncFunction(function(){
+<pre><code>asyncFunction(function(){
    moduleA.method();
    moduleB.method();
    moduleC.method();
@@ -27,16 +25,14 @@ S.ready(function(){
 });
 </pre></code>
 ##Events
-<pre><code>
-Event.on('change', handler);
+<pre><code>Event.on('change', handler);
 Event.fire('change');
 </pre></code>
 ###优点
 解耦方便，模块依赖降低
 
 
-<pre><code>
-Event.on('change', moduleA.method);
+<pre><code>Event.on('change', moduleA.method);
 Event.on('change', moduleB.method);
 Event.on('change', moduleC.method);
 Event.on('change', moduleD.method);
@@ -47,8 +43,7 @@ Event.on('change', moduleD.method);
 2.事件无状态，绑定发生在触发事件之后，而函数不会被调用
 
 
-<pre><code>
-$el.on('click', function(ev) {
+<pre><code>$el.on('click', function(ev) {
    var $target = $(ev.currentTarget);
    App.subscribe($target.attr('data-id'), function(){
             $target.addClass('.s-subscribed');
@@ -82,8 +77,7 @@ $.ready(cb2);
 同步编程，异步执行
 
 
-<pre><code>
-//KISSY 1.3
+<pre><code>//KISSY 1.3
 S.ajax(..).fin(cb1).fin(cb2);
 </pre></code>
 
