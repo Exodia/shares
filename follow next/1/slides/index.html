@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>undefined</title>
+    <meta name="description" content="">
+    <meta name="author" content="Hakim El Hattab">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="stylesheet" href="reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="reveal.js/css/theme/default.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+      
+        <section class="cover">
+          <h1>精通one, 了解more, 关注next</h1>
+<h1>关注next（1）—— Ecmascript.next</h1>
+
+        </section>
+      
+        <section class="">
+          <h2>Support Tools</h2>
+<h3><a href="https://www.google.com/intl/en/chrome/browser/canary.html">Chrome Canary</a></h3>
+<h3><a href="http://www.mozilla.org/en-US/firefox/aurora/">Firefox Aurora</a></h3>
+<h3>NodeJs --harmony</h3>
+<h3>chrome://flags</h3>
+
+        </section>
+      
+        <section class="">
+          <h2>Default parameter values</h2>
+<p><pre><code>
+function addTodo(caption = &#39;Do something&#39;) {
+    alert(caption);
+}
+addTodo(); // Do something
+
+</p>
+<p>//Wrong!!
+function f(arg1 = &#39;xx&#39;, arg2) {
+
+
+</p>
+<p>}
+</code></pre>
+</p>
+<h3>默认参数只能放在最右边</h3>
+
+        </section>
+      
+        <section class="">
+          <h2>Rest Arguments</h2>
+<pre><code>function f(arg1, arg2, ...rest) {
+    alert("你传入了" + rest.length + "个额外的参数.");
+}
+
+function f1(...rest) {
+    arguments; //Wrong!
+    function nest() {
+        alert(arguments.length)
+        alert(rest.length);
+    }
+
+    nest();
+}
+
+f();
+f1();
+
+//Wrong!!
+function f2(arg1, ...rest, arg2) {
+
+}</code></pre>
+
+
+
+        </section>
+      
+        <section class="">
+          <h2>1.剩余参数只能放在最右边<br><br>2.在使用了剩余参数的函数中不能使用arguments对象</h2>
+
+        </section>
+      
+      </div>
+    </div>
+
+    <script src="reveal.js/lib/js/head.min.js"></script>
+    <script src="reveal.js/js/reveal.min.js"></script>
+
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+            keyboard: true,
+            rollingLinks: true,
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'zoom', // default/cube/page/concave/zoom/linear/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+    </script>
+  </body>
+</html>
